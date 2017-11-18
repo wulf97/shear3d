@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "GL.h"
 
 class MainWindow : public QMainWindow
 {

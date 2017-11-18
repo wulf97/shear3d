@@ -1,9 +1,9 @@
 #include "Cut.h"
 
-Cut::Cut(Stl *stl, Tcor zCor) {
+Cut::Cut(Stl *stl, Tcor zCor, Polyline &pLine) {
     std::vector<Line> lineSet;
     Line line;
-    Polyline pLine;
+    //Polyline pLine;
 
     for (int i = 0; stl->get(i).minZ() <= zCor; i++) {
         if (stl->get(i).maxZ() >= zCor) {
@@ -16,26 +16,27 @@ Cut::Cut(Stl *stl, Tcor zCor) {
     }
 
     while (pLine.empty() || pLine.begin() != pLine.end()) {
-    for (int i = 0; i < lineSet.size(); i++) {
-        if (!pLine.empty()) {
-            if (pLine.end() == lineSet[i].begin()) {
+        for (int i = 0; i < lineSet.size(); i++) {
+            if (!pLine.empty()) {
+                if (pLine.end() == lineSet[i].begin()) {
+                    pLine.addEnd(lineSet[i].end());
+                    lineSet.erase(lineSet.begin() + i);
+                    i = 0;
+                } else {
+                    if (pLine.end() == lineSet[i].end()) {
+                        pLine.addEnd(lineSet[i].begin());
+                        lineSet.erase(lineSet.begin() + i);
+                        i = 0;
+                    }
+                }
+            } else {
+                pLine.addEnd(lineSet[i].begin());
                 pLine.addEnd(lineSet[i].end());
                 lineSet.erase(lineSet.begin() + i);
                 i = 0;
-            } else {
-                if (pLine.end() == lineSet[i].end()) {
-                    pLine.addEnd(lineSet[i].begin());
-                    lineSet.erase(lineSet.begin() + i);
-                    i = 0;
-                }
             }
-        } else {
-            pLine.addEnd(lineSet[i].begin());
-            pLine.addEnd(lineSet[i].end());
-            lineSet.erase(lineSet.begin() + i);
-            i = 0;
         }
-    }}
+    }
 
 }
 

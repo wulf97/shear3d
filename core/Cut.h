@@ -9,7 +9,7 @@
 
 class Cut {
 public:
-    Cut(Stl*, Tcor);
+    Cut(Stl*, Tcor, Polyline&);
     ~Cut();
 private:
     Line cutTriangle(Triangle, Tcor);

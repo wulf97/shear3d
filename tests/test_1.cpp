@@ -5,6 +5,6 @@ void test_1() {
     Stl *stl = new Stl("/home/alexej/Desktop/cube.stl");
     //Stl *stl = new Stl("/home/alexej/Downloads/der.STL");
 
-    Cut *cut = new Cut(stl, 0);
+    //Cut *cut = new Cut(stl, 0);
 
 }

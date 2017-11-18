@@ -19,6 +19,10 @@ void Polyline::addBegin(Vertices2f v) {
     this->v.insert(this->v.begin(), v);
 }
 
+Vertices2f Polyline::get(int i) {
+    return this->v[i];
+}
+
 Vertices2f Polyline::end() {
     return this->v.back();
 }
@@ -32,6 +36,10 @@ bool Polyline::empty() {
         return true;
     else
         return false;
+}
+
+int Polyline::size() {
+    return this->v.size();
 }
 
 void Polyline::print() {

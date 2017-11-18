@@ -16,7 +16,8 @@ SOURCES = \
     tests/test_1.cpp \
     core/Line.cpp \
     tests/test_2.cpp \
-    core/Slice.cpp
+    core/Slice.cpp \
+    gui/GL.cpp
 
 HEADERS = \
     gui/MainWindow.h \
@@ -30,7 +31,8 @@ HEADERS = \
     tests/test_1.h \
     core/Line.h \
     tests/test_2.h \
-    core/Slice.h
+    core/Slice.h \
+    gui/GL.h
 
 INCLUDEPATH = \
     core\

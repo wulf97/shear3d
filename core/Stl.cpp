@@ -1,54 +1,47 @@
 #include "Stl.h"
 
-Stl::Stl(const char *str) {
-    this->_patch = str;
-    this->_flag = NULL;
-    this->_index = 0;
-    this->_buffSize = 0;
+Stl::Stl(const char *patch) {
+    std::ifstream file;
+    Triangle t;
+    int size;
+
+    file.open(patch, std::ios::in | std::ios::binary);
+    if (file.is_open()) {
+        file.seekg(80, std::ios::beg);
+        file.read((char*)&size, sizeof(size));
+        this->_size = size;
+
+        this->_buff.reserve(size);
+        for (int i = 0; i < size; i++) {
+            file.seekg(12, std::ios::cur);
+            file.read((char*)&t, sizeof(t));
+            this->_buff.push_back(t);
+            file.seekg(2, std::ios::cur);
+        }
+
+        file.close();
+    }
+
+    this->sort();
 }
 
 Stl::~Stl() {
 
 }
 
-void Stl::read() {
-    std::ifstream file;
-    Triangle t;
-
-    file.open(this->_patch, std::ios::in | std::ios::binary);
-    if (file.is_open()) {
-        if (this->_flag == NULL) {
-            file.seekg(80, std::ios::beg);
-            file.read((char*)&this->_size, sizeof(this->_size));
-            this->_flag = 1;
-        }
-
-        this->_buffSize = ((this->_size - this->_index) > BUFF_SIZE)? BUFF_SIZE: this->_size - this->_index;
-        this->_buff.reserve(this->_buffSize);
-        for (int i = 0; i < this->_buffSize; i++) {
-            file.seekg(12, std::ios::cur);
-            file.read((char*)&t, sizeof(t));
-            this->_buff.push_back(t);
-            file.seekg(2, std::ios::cur);
-
-            this->_index++;
-        }
-
-        file.close();
-    };
-}
-
 Triangle Stl::get(int i) {
-    return this->_buff.at(i);
-}
-
-bool Stl::end() {
-    if (this->_size == this->_index && this->_flag != NULL)
-        return true;
-    else
-        return false;
+    return this->_buff[i];
 }
 
 int Stl::size() {
-    return _buffSize;
+    return this->_size;
+}
+
+void Stl::sort() {
+    for (int i = this->_size; i > 0; i--) {
+        for (int j = 0; j < i - 1; j++) {
+            if (this->_buff[j].minZ() > this->_buff[j + 1].minZ())
+                std::swap(this->_buff[j], this->_buff[j + 1]);
+        }
+    }
 }

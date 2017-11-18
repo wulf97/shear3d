@@ -2,8 +2,8 @@
 #include "test_1.h"
 #include "test_2.h"
 
-//#define TEST_1
-#define TEST_2
+#define TEST_1
+//#define TEST_2
 
 Test::Test() {
 

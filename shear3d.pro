@@ -15,7 +15,8 @@ SOURCES = \
     core/Triangle.cpp \
     tests/test_1.cpp \
     core/Line.cpp \
-    tests/test_2.cpp
+    tests/test_2.cpp \
+    core/Slice.cpp
 
 HEADERS = \
     gui/MainWindow.h \
@@ -28,7 +29,8 @@ HEADERS = \
     core/Triangle.h \
     tests/test_1.h \
     core/Line.h \
-    tests/test_2.h
+    tests/test_2.h \
+    core/Slice.h
 
 INCLUDEPATH = \
     core\

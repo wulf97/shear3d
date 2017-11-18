@@ -10,20 +10,20 @@ Vertices2f::~Vertices2f() {
 
 }
 
-void Vertices2f::operator = (Vertices2f *v) {
-    this->x = v->x;
-    this->y = v->y;
+void Vertices2f::operator = (Vertices2f v) {
+    this->x = v.x;
+    this->y = v.y;
 }
 
-bool Vertices2f::operator == (Vertices2f *v) {
-    if (this->x == v->x && this->y == v->y)
+bool Vertices2f::operator == (Vertices2f v) {
+    if (this->x == v.x && this->y == v.y)
         return true;
     return false;
 
 }
 
-bool Vertices2f::operator != (Vertices2f *v) {
-    if (this->x != v->x || this->y != v->y)
+bool Vertices2f::operator != (Vertices2f v) {
+    if (this->x != v.x || this->y != v.y)
         return true;
     return false;
 }
@@ -57,20 +57,20 @@ Vertices3f::~Vertices3f() {
 
 }
 
-void Vertices3f::operator = (Vertices3f *v) {
-    this->x = v->x;
-    this->y = v->y;
-    this->z = v->z;
+void Vertices3f::operator = (Vertices3f v) {
+    this->x = v.x;
+    this->y = v.y;
+    this->z = v.z;
 }
 
-bool Vertices3f::operator == (Vertices3f *v) {
-    if (this->x == v->x && this->y == v->y && this->z == v->z)
+bool Vertices3f::operator == (Vertices3f v) {
+    if (this->x == v.x && this->y == v.y && this->z == v.z)
         return true;
     return false;
 }
 
-bool Vertices3f::operator != (Vertices3f *v) {
-    if (this->x != v->x || this->y != v->y || this->z != v->z)
+bool Vertices3f::operator != (Vertices3f v) {
+    if (this->x != v.x || this->y != v.y || this->z != v.z)
         return true;
     return false;
 }

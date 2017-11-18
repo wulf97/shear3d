@@ -6,12 +6,14 @@
 class Line {
 public:
     Line();
-    Line(Vertices2f, Vertices2f, Tcor);
+    Line(Vertices2f, Vertices2f);
     ~Line();
 
+    Vertices2f get(int);
+    Vertices2f end();
+    Vertices2f begin();
     void print();
 private:
-    Tcor level;
     Vertices2f v[2];
 };
 

@@ -15,6 +15,8 @@ public:
     Tcor maxZ();
     void print();
 private:
+    void sort();
+
     Vertices3f v[3];
 };
 

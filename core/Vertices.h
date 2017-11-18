@@ -13,9 +13,9 @@ public:
     Vertices2f(const Vertices2f&);
     ~Vertices2f();
 
-    void operator = (Vertices2f*);
-    bool operator == (Vertices2f*);
-    bool operator != (Vertices2f*);
+    void operator = (Vertices2f);
+    bool operator == (Vertices2f);
+    bool operator != (Vertices2f);
 
     void set(Tcor, Tcor);
     Tcor getX();
@@ -33,9 +33,9 @@ public:
     Vertices3f(const Vertices3f&);
     ~Vertices3f();
 
-    void operator = (Vertices3f*);
-    bool operator == (Vertices3f*);
-    bool operator != (Vertices3f*);
+    void operator = (Vertices3f);
+    bool operator == (Vertices3f);
+    bool operator != (Vertices3f);
 
     void set(Tcor, Tcor, Tcor);
     Tcor getX();

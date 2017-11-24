@@ -9,13 +9,13 @@ typedef float Tcor;
 
 class Vertices2f {
 public:
-    Vertices2f(Tcor _x = 0, Tcor _y = 0) : x(_x), y(_y) {}
+    Vertices2f(Tcor x = 0, Tcor y = 0) : _x(x), _y(y) {}
     Vertices2f(const Vertices2f&);
     ~Vertices2f();
 
-    void operator = (Vertices2f);
-    bool operator == (Vertices2f);
-    bool operator != (Vertices2f);
+    void operator = (const Vertices2f&);
+    bool operator == (const Vertices2f&);
+    bool operator != (const Vertices2f&);
 
     void set(Tcor, Tcor);
     Tcor getX();
@@ -23,19 +23,19 @@ public:
 
     void print();
 private:
-    Tcor x;
-    Tcor y;
+    Tcor _x;
+    Tcor _y;
 };
 
 class Vertices3f {
 public:
-    Vertices3f(Tcor _x = 0, Tcor _y = 0, Tcor _z = 0) : x(_x), y(_y), z(_z) {}
+    Vertices3f(Tcor x = 0, Tcor y = 0, Tcor z = 0) : _x(x), _y(y), _z(z) {}
     Vertices3f(const Vertices3f&);
     ~Vertices3f();
 
-    void operator = (Vertices3f);
-    bool operator == (Vertices3f);
-    bool operator != (Vertices3f);
+    void operator = (const Vertices3f&);
+    bool operator == (const Vertices3f&);
+    bool operator != (const Vertices3f&);
 
     void set(Tcor, Tcor, Tcor);
     Tcor getX();
@@ -44,9 +44,9 @@ public:
     Vertices2f to2f();
     void print();
 private:
-    Tcor x;
-    Tcor y;
-    Tcor z;
+    Tcor _x;
+    Tcor _y;
+    Tcor _z;
 };
 
 #endif // VERTIX_H

@@ -10,9 +10,12 @@ class Slice {
 public:
     Slice();
 
-    void add();
+    void add(Polyline);
+    Polyline get(int);
+    void clear();
+    int size();
 private:
-    std::vector<Polyline> pLine;
+    std::vector<Polyline> _pLine;
 };
 
 #endif // LEVEL_H
